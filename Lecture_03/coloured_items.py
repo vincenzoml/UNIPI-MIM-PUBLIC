@@ -15,3 +15,7 @@ b = sitk.VectorIndexSelectionCast(img, 2)
 gray = 0.299*(sitk.Cast(r, sitk.sitkFloat32)) + 0.587*sitk.Cast(g, sitk.sitkFloat32) + 0.114*sitk.Cast(b, sitk.sitkFloat32)
 
 sitk.WriteImage(sitk.Cast(gray, sitk.sitkUInt8), "gray.png")
+
+thr = sitk.BinaryThreshold(gray, lowerThreshold=180, upperThreshold=255,outsideValue=0, insideValue=255)
+
+sitk.WriteImage(thr, "thr.png")
