@@ -1,0 +1,106 @@
+
+load base="exercise.png"
+
+save "0.png" base
+
+
+
+let k = (red(base) =. 0) & (green(base) =. 0) & (blue(base) =. 0)
+let w = (red(base) =. 255) & (green(base) =. 255) & (blue(base) =. 255)
+let b = (red(base) =. 0) & (green(base) =. 0) & (blue(base) =. 255)
+let g = (red(base) =. 0) & (green(base) =. 255) & (blue(base) =. 0)
+
+save "1.png" g
+save "2.png" b
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+save "3.png" !w
+
+
+save "4.png" g | b
+
+
+save "5.png" N b 
+
+
+save "5b.png" I b
+
+save "5c.png" N I b
+
+
+
+let iboundary(x) = x & (!(I x)) 
+save "6.png" iboundary(b)
+
+
+let eboundary(x) = (N x) & (!x)
+save "7.png" eboundary(b)
+
+
+
+let boundary(x) = (N x) & (!(I x))
+save "8.png" boundary(b)
+
+
+save "9.png" b S g
+
+
+save "10.png" N (I g)
+
+save "10b.png" I g
+
+
+save "11.png" g T b
+
+
+save "12.png" g T (b T k)
+
+save "13.png" pdt(k) *. 5
+save "13b.png" dt(k) *. 5
+save "14.png" pdt(k) <. 2
+save "15.png" pdt(k) <. 5
+
+
+save "16.png" N k
