@@ -1,0 +1,8 @@
+load i = "three_coloured_items.png"
+
+let greyish = 
+    (red(i) >. 120) & (green(i) >. 120) & 
+    (blue(i) >. 120) 
+
+let view(x) = overlayColor(x,i,0,255,0) 
+save "output/greyish.png" view(greyish)

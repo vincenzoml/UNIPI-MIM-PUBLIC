@@ -1,0 +1,45 @@
+load i = "three_coloured_items.png"
+
+let greyish = 
+    (red(i) >. 120) & (green(i) >. 120) & 
+    (blue(i) >. 120) 
+
+let view(x) = overlayColor(x,i,0,255,0) 
+save "output/greyish.png" view(greyish)
+let normalise(x,v) = 
+    (x /. max(x)) *. v
+
+save "output/pdt.png" 
+    normalise(pdt(border),255)let thickBorder = pdt(border) <. 30
+
+save "output/thickBorder.png" 
+    view(thickBorder)let greyishTouchBorder = 
+    greyish ~> border
+
+save "output/greyishTouchBorder.png" 
+    view(greyishTouchBorder)
+
+    let distgeq(x,y) = x .<= pdt(y)
+let distleq(x,y) = x .>= pdt(y)
+let flt(x,a) = distleq(x,distgeq(x,!a))
+let dualSmoothen(x,a) = 
+    flt(x,a) | (!flt(x,!a))
+
+let smooth = 
+    dualSmoothen(10,greyishTouchBorder)
+
+save "output/filtered.png" view(smooth)
+let final = smooth | ((!smooth) ~> border)
+
+save "output/final.png" view(final)
+let similar(x,r,k) = 
+    crossCorrelation(r,
+        intensity(i),intensity(i),
+            x,min(intensity(i)),
+                max(intensity(i)),k)
+
+let simMap = 
+    similar((pdt(border) <. 3),30,4)
+
+save "output/texture.png" 
+    normalise(simMap +. 1,200)

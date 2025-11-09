@@ -1,0 +1,4 @@
+let freeSquares = all ~> N freeCorridor
+
+save "output/example05.png" 
+    view(freeSquares)

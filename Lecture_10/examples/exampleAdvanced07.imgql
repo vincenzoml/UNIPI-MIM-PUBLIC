@@ -1,0 +1,11 @@
+let similar(x,r,k) = 
+    crossCorrelation(r,
+        intensity(i),intensity(i),
+            x,min(intensity(i)),
+                max(intensity(i)),k)
+
+let simMap = 
+    similar((pdt(border) <. 3),30,4)
+
+save "output/texture.png" 
+    normalise(simMap +. 1,200)

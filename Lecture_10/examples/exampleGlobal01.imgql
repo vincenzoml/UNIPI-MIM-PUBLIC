@@ -1,0 +1,3 @@
+print "corridors volume" volume(corridor)
+print "image volume" volume(tt)
+print "corridors / total volume" volume(corridor) ./. volume(tt)

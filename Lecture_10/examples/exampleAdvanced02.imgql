@@ -1,0 +1,5 @@
+let normalise(x,v) = 
+    (x /. max(x)) *. v
+
+save "output/pdt.png" 
+    normalise(pdt(border),255)

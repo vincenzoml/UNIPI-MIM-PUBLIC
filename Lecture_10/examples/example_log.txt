@@ -1,0 +1,12 @@
+[ 84ms] [info] Parsing input...
+[127ms] [info] Preparing computation...
+[157ms] [info] Importing file "/path/to/stdlib.imgql"
+[167ms] [info] Loading file "/path/to/maze01.png"
+[205ms] [warn] image maze01.png has 4 color components per voxel. 
+               Assuming RGBA color space (CMYK is not supported).
+[241ms] [info] Starting computation...
+[242ms] [info] Running 10 tasks
+[292ms] [warn] saving boolean image to example01.png; 
+               value 'true' is 255, not 1
+[296ms] [info] Saving file "/path/to/output/example01.png"
+[334ms] [info] ... done.

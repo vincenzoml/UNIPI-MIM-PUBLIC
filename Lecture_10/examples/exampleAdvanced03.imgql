@@ -1,0 +1,4 @@
+let thickBorder = pdt(border) <. 30
+
+save "output/thickBorder.png" 
+    view(thickBorder)

@@ -1,0 +1,44 @@
+
+load img = "maze01.png"
+let corridor = (red(img) =. 255) & 
+    (green(img) =. 255) & (blue(img) =. 255)
+
+save "output/example01.png" corridor
+    
+
+let view(x) = overlayColor(x,img,255,0,0)
+
+save "output/example02.png" view(corridor)
+let rgbcol(r,g,b) = 
+    (red(img) =. r) & (green(img) =. g) & (blue(img) =. b)
+
+let corridor = rgbcol(255,255,255)  
+let exit = rgbcol(0,255,0)
+let trapdoor = rgbcol(255,128,128)
+
+let cyan = rgbcol(0,255,255)
+let orange = rgbcol(255,128,0) 
+let magenta = rgbcol(255,0,255)
+let blueSq = rgbcol(0,0,255)
+
+let all = cyan | orange | magenta | blueSq
+
+let freeCorridor = corridor ~> (N exit)
+
+save "output/example04.png" 
+    view(freeCorridor)let freeSquares = all ~> N freeCorridor
+
+save "output/example05.png" 
+    view(freeSquares)let rescuer =  (cyan | blueSq | orange)
+    ~> N (corridor ~> 
+        (N (trapdoor ~> 
+            N (corridor ~> 
+                N (magenta ~> 
+                    N ((corridor | trapdoor) ~> 
+                        N exit ))))))
+    
+save "output/example06.png" view(rescuer)
+print "corridors volume" volume(corridor)
+print "image volume" volume(tt)
+print "corridors / total volume" volume(corridor) ./. volume(tt)let exists(x) = volume(x) .>. 0
+print "existsRescuer" exists(rescuer)

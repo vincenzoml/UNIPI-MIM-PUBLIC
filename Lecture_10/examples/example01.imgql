@@ -1,0 +1,8 @@
+
+load img = "maze01.png"
+let corridor = (red(img) =. 255) & 
+    (green(img) =. 255) & (blue(img) =. 255)
+
+save "output/example01.png" corridor
+    
+

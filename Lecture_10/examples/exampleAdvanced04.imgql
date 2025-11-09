@@ -1,0 +1,7 @@
+let greyishTouchBorder = 
+    greyish ~> border
+
+save "output/greyishTouchBorder.png" 
+    view(greyishTouchBorder)
+
+    

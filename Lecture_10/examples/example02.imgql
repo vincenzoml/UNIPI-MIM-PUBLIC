@@ -1,0 +1,3 @@
+let view(x) = overlayColor(x,img,255,0,0)
+
+save "output/example02.png" view(corridor)

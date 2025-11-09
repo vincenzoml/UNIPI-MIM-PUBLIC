@@ -1,0 +1,10 @@
+let distgeq(x,y) = x .<= pdt(y)
+let distleq(x,y) = x .>= pdt(y)
+let flt(x,a) = distleq(x,distgeq(x,!a))
+let dualSmoothen(x,a) = 
+    flt(x,a) | (!flt(x,!a))
+
+let smooth = 
+    dualSmoothen(10,greyishTouchBorder)
+
+save "output/filtered.png" view(smooth)

@@ -1,0 +1,9 @@
+let rescuer =  (cyan | blueSq | orange)
+    ~> N (corridor ~> 
+        (N (trapdoor ~> 
+            N (corridor ~> 
+                N (magenta ~> 
+                    N ((corridor | trapdoor) ~> 
+                        N exit ))))))
+    
+save "output/example06.png" view(rescuer)

@@ -1,0 +1,3 @@
+let final = smooth | ((!smooth) ~> border)
+
+save "output/final.png" view(final)
