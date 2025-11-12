@@ -1,0 +1,29 @@
+load img = "maze01.png"
+let rgbcol(r,g,b) = 
+    (red(img) =. r) & (green(img) =. g) & (blue(img) =. b)
+
+let corridor = rgbcol(255,255,255)  
+let exit = rgbcol(0,255,0)
+let trapdoor = rgbcol(255,128,128)
+
+let cyan = rgbcol(0,255,255)
+let orange = rgbcol(255,128,0) 
+let magenta = rgbcol(255,0,255)
+let blueSq = rgbcol(0,0,255)
+
+let all = cyan | orange | magenta | blueSq
+
+
+let rescuer =  (cyan | blueSq | orange)
+    ~> N (corridor ~> 
+        (N (trapdoor ~>             
+            N ((corridor ~> 
+                        N exit )))))
+
+let view(x) = overlayColor(x,img,255,0,0)
+
+
+let exists(x) = volume(x) .>. 0
+
+save "output/test.png" dt(rescuer)
+print "exists" exists(rescuer)
